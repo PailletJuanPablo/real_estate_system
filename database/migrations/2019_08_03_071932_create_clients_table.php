@@ -29,7 +29,7 @@ class CreateClientsTable extends Migration
             $table->longText('additional_data')->nullable();
             $table->integer('phone')->unique();
             $table->integer('user')->nullable();
-            $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->timestamps();
             $table->softDeletes();

@@ -27,6 +27,7 @@
         <!-- DataTables with bootstrap 3 style -->
         <link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
     @endif
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 
     @yield('adminlte_css')
 
@@ -60,8 +61,12 @@
     <!-- ChartJS -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 @endif
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
 
 @yield('adminlte_js')
+
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 </body>
 </html>

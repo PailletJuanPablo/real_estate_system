@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => '',
 
     'logout_url' => 'logout',
 
@@ -108,10 +108,10 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'ADMINISTRADOR',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
+            'text' => 'Estados',
+            'url'  => 'client_status',
             'role'  => 'admin',
         ],
         [

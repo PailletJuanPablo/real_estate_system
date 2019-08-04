@@ -8,3 +8,14 @@
   margin-right: 10px;
 }
 
+.schedule-box {
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.schedule-box .title {
+  font-weight: bold;
+}
+

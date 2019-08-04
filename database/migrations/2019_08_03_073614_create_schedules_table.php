@@ -28,7 +28,7 @@ class CreateSchedulesTable extends Migration
 
         Schema::create('schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('at');
+            $table->timestamp('at');
             $table->string('title')->nullable();
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');

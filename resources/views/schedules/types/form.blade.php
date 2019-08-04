@@ -36,8 +36,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Color</label>
-                                <input required type="text" class="form-control" spellcheck="false" name="color"
-                                    id="colorpicker" placeholder="Escribir aquí" @isset($schedule_type)
+                                <input required type="text" readonly="readonly"  class="form-control" spellcheck="false" name="color"
+                                    id="colorpicker" placeholder="Presione aquí" @isset($schedule_type)
                                     value="{{$schedule_type->color}}" @endisset>
 
 

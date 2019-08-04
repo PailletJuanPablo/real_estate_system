@@ -7,21 +7,67 @@
 @stop
 
 @section('content')
-<div class="col-md-3">
+<div class="row">
+  <div class="col-md-3">
+    <div class="box">
+      <div class="box-header">
+      
+
+        <div class="box-header">
+            <h3 class="box-title"> Eventos cercanos</h3>
+            <br><br>
+            <a class="btn btn-primary" href="{{route('schedules/form')}}">
+              <i class="fa fa-plus"></i> Registrar nuevo
+            </a>
+          </div>
+      </div>
+      <div class="box-body">
+        <script>
+          const events = [];
+        </script>
+
+        @foreach ($schedules as $schedule)
+        <div class="schedule-box" style="background: {{$schedule->type->color}}">
+          <p class="title">{{$schedule->type->name}} </p>
+          <hr>
+          <p class="date"> Fecha: {{$schedule->date_at()}} - {{$schedule->time_at()}} </p>
+          @if ($schedule->client_id)
+          <p class="client">Cliente: {{ $schedule->client->last_name }} {{ $schedule->client->first_name }}</p>
+          @endif
+          @if ($schedule->property_id)
+          <p class="property"> Propiedad: {{ $schedule->property->title }} </p>
+          @endif
 
 
 
-</div>
-<div class="col-md-9">
+        </div>
 
-  <div class="box">
-    <div class="box-body">
-      <div id="calendar">
+        <script>
+        events.push({
+            title: "{{$schedule->type->name}}",
+            start: '{{$schedule->at}}',
+            backgroundColor: '{{$schedule->type->color}}',
+            borderColor: '{{$schedule->type->color}}',
+        });
+        console.log(events);
+
+        </script>
+        @endforeach
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-md-9">
+
+    <div class="box">
+      <div class="box-body">
+        <div id="calendar">
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 @stop
 
 @section('css')

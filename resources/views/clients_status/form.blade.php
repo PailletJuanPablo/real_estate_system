@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Estados de Clientes ')
+@section('title', 'Estados ')
 
 @section('content_header')
 <h1> {{ $title }} </h1>

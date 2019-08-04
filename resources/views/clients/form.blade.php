@@ -51,7 +51,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Estado</label>
-                                <select class="form-control" required name="status_id">
+                                <select class="form-control"
+                               
+                                
+                                required name="status_id">
                                     @foreach ($statuses as $status)
                                     <option style="background: {{$status->color}}" value="{{$status->id}}">
                                         {{$status->title}} </option>
@@ -79,6 +82,3 @@
 <link href="{{ asset('css/colorpicker.min.css') }}" rel="stylesheet">
 @stop
 
-
-
-@stop

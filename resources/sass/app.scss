@@ -1,3 +1,13 @@
 
 // Variables
 @import 'variables';
+
+.table-actions-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    form {
+        margin-right: 10px;
+    }
+}

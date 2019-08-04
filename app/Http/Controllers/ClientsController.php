@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
+use App\Status;
 
 class ClientsController extends Controller
 {
@@ -32,26 +33,34 @@ class ClientsController extends Controller
             $data = [
                 "title" => $title,
             ];
+            $statuses = Status::all();
+            $data['statuses'] = $statuses;
             if($request->input('id')) {
-                $entity = Client::find($request->input('id'));
-                if($entity) {
-                    $data['entity'] = $entity;
+                $client = Client::find($request->input('id'));
+                if($client) {
+                    $data['client'] = $client;
                 }
             }
             return view('clients.form', $data);
         } else {
             if($request->id) {
-                $entity = Client::find($request->id);
-                if($entity) {
-                    $entity->update($request->all());
+                $client = Client::find($request->id);
+                if($client) {
+                    $client->update($request->all());
                 }
             }else {
-                $entity = Client::create($request->all());
+                $client = Client::create($request->all());
             }
     
         }
         return redirect()->route('clients');
     }
+
+    public function delete($id) {
+        Client::destroy($id);
+        return redirect()->route('clients'); 
+    }
+
 
     
 

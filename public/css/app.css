@@ -1,0 +1,10 @@
+.table-actions-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.table-actions-flex form {
+  margin-right: 10px;
+}
+

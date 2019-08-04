@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Estados de Clientes')
+@section('title', 'Estados de Clientes ')
 
 @section('content_header')
-<h1>Clientes</h1>
+<h1> {{ $title }} </h1>
 @stop
 
 @section('content')
@@ -11,64 +11,71 @@
     <div class="col-md-12">
 
         <div class="box">
-
-            <div class="box-header">
-                <a class="btn btn-app" href="{{route('clients/form')}}">
-                    <i class="fa fa-plus"></i> Añadir
-                </a>
-            </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="table_id" class="table table-bordered table-hover dataTable">
-                    <thead>
-                        <tr>
-                            <th>Nombre </th>
-                            <th>Tel</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <form role="form" method="POST">
+                    @isset($status)
+                    <input type="hidden" value="{{$status->id}}" name="id">
+                    @endisset
+                    <div class="box-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Nombre </label>
+                                <input required type="text" class="form-control" name="title"
+                                    placeholder="Escribir aquí" @isset($status) value="{{$status->title}}" @endisset>
+                            </div>
+                        </div>
 
-                        @foreach ($clients as $client)
-                        <tr>
-                            <td> {{$client->first_name}}  {{$client->last_name}}   </td>
-                            <td> {{$client->phone}} </td>
-                            <td>
-                                <div style="height: 20px; width: 100px; background: {{ $client->status->color}}"></div>
-                            </td>
-                            <td>
-                                <form method="POST" onsubmit="return confirm('¿Confirma eliminación?');"
-                                    action="{{route('client/delete', ['id' => $client->id])}}">
-                                    <button type="submit" class="btn label label-danger"> <i class="fa fa-remove"></i>
-                                        Eliminar </button>
-                                </form>
-                                <a href="{{route('client/form', ['id'=> $client->id])}}"
-                                    class="btn label label-primary"> <i class="fa fa-pencil"></i>
-                                    Editar </span>
-                                </a>
-                            </td>
-                        </tr>
-                        @endforeach
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Descripcion (No obligatorio)</label>
+                                <textarea type="text" class="form-control" name="description"
+                                    placeholder="Escribir aquí"> @isset($status) {{$status->description}} @endisset </textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Color</label>
+                                <input required type="text" class="form-control" spellcheck="false" name="color"
+                                    id="colorpicker" placeholder="Escribir aquí" @isset($status)
+                                    value="{{$status->color}}" @endisset>
 
 
-
-                    </tbody>
-                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary"> {{ $title }}</button>
+                    </div>
+                </form>
             </div>
-            <!-- /.box-body -->
-
+            <!-- /.box -->
         </div>
-        <!-- /.box -->
+
     </div>
 </div>
+@stop
 
+@section('css')
+<link href="{{ asset('css/colorpicker.min.css') }}" rel="stylesheet">
 @stop
 
 @section('js')
+
+<script src="{{ asset('js/colorpicker.js') }}"></script>
 <script>
-    $(document).ready( function () {
-    $('#table_id').DataTable();
-} );
+    if( $('#colorpicker').val()){
+        $('#colorpicker').css('background', $('#colorpicker').val());
+        $('#colorpicker').css('color', $('#colorpicker').val());
+    } 
+
+    $(document ).ready(function() {
+            $('#colorpicker').colorpicker({format: 'hex'}).on('changeColor', (e) => {
+            $('#colorpicker').css('background', e.color.toString('rgba'));
+            $('#colorpicker').css('color', e.color.toString('rgba'));
+        });
+});
+
 </script>
 @stop

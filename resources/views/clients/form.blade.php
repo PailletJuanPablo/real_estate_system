@@ -11,6 +11,16 @@
     <div class="col-md-12">
 
         <div class="box">
+            @if($errors->any())
+            <div class="box-header">
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i> Error</h4>
+                    {{$errors->first()}}
+                </div>
+            </div>
+            @endif
+
             <!-- /.box-header -->
             <div class="box-body">
                 <form role="form" method="POST">
@@ -51,17 +61,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Estado</label>
-                                <select class="form-control"
-                               
-                                
-                                required name="status_id">
+                                <select class="form-control" required name="status_id">
                                     @foreach ($statuses as $status)
                                     <option style="background: {{$status->color}}" value="{{$status->id}}">
                                         {{$status->title}} </option>
                                     @endforeach
                                 </select>
 
-                               
+
                             </div>
                         </div>
                     </div>
@@ -81,4 +88,3 @@
 @section('css')
 <link href="{{ asset('css/colorpicker.min.css') }}" rel="stylesheet">
 @stop
-

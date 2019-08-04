@@ -115,17 +115,20 @@ return [
             'role'  => 'admin',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Tipos de eventos de agenda',
+            'url'  => 'schedules_types',
+            'role'  => 'admin',
         ],
-        'ACCOUNT SETTINGS',
+        'AGENDA',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => 'Clientes',
+            'url'  => 'clients',
             'icon' => 'user',
+        ],
+        [
+            'text' => 'Agenda',
+            'url'  => 'schedules',
+            'icon' => 'calendar',
         ],
         [
             'text' => 'Change Password',

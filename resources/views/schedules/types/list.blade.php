@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Estados de Clientes')
+@section('title', 'Tipos de eventos de Agenda')
 
 @section('content_header')
-<h1>Estados de Clientes</h1>
+<h1>Tipos de eventos de Agenda</h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
         <div class="box">
 
             <div class="box-header">
-                <a class="btn btn-app" href="{{route('client_status/form')}}">
+                <a class="btn btn-app" href="{{route('schedules_types/form')}}">
                     <i class="fa fa-plus"></i> Añadir
                 </a>
             </div>
@@ -30,20 +30,20 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($statuses as $status)
+                        @foreach ($schedules_types as $scheduleType)
                         <tr>
-                            <td> {{$status->title}} </td>
-                            <td> {{$status->description}} </td>
+                            <td> {{$scheduleType->name}} </td>
+                            <td> {{$scheduleType->description}} </td>
                             <td>
-                                <div style="height: 20px; width: 100px; background: {{ $status->color}}"></div>
+                                <div style="height: 20px; width: 100px; background: {{ $scheduleType->color}}"></div>
                             </td>
                             <td>
                                 <form method="POST" onsubmit="return confirm('¿Confirma eliminación?');"
-                                    action="{{route('client_status/delete', ['id' => $status->id])}}">
+                                    action="{{route('schedules_types/delete', ['id' => $scheduleType->id])}}">
                                     <button type="submit" class="btn label label-danger"> <i class="fa fa-remove"></i>
                                         Eliminar </button>
                                 </form>
-                                <a href="{{route('client_status/form', ['id'=> $status->id])}}"
+                                <a href="{{route('schedules_types/form', ['id'=> $scheduleType->id])}}"
                                     class="btn label label-primary"> <i class="fa fa-pencil"></i>
                                     Editar </span>
                                 </a>

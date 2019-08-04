@@ -29,3 +29,11 @@ Route::get('/clients/form/{id?}', 'ClientsController@createOrUpdate')->name('cli
 Route::post('/clients/form', 'ClientsController@createOrUpdate')->name('clients/form');
 Route::post('/clients/delete/{id}', 'ClientsController@delete')->name('clients/delete');
 
+Route::get('/schedules', 'SchedulesController@index')->name('schedules');
+Route::get('/schedules_types', 'ScheduleTypeController@index')->name('schedules_types');
+
+Route::get('/schedules_types', 'ScheduleTypeController@index')->name('schedules_types');
+Route::get('/schedules_types/form/{id?}', 'ScheduleTypeController@createOrUpdate')->name('schedules_types/form');
+Route::post('/schedules_types/form', 'ScheduleTypeController@createOrUpdate')->name('schedules_types/form');
+Route::post('/schedules_types/delete/{id}', 'ScheduleTypeController@delete')->name('schedules_types/delete');
+

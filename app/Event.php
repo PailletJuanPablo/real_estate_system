@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class Event extends Model
 {
@@ -15,6 +17,16 @@ class Event extends Model
         static::saving(function ($instance){
             $instance->user_id = Auth::user()->id;
         });
+    }
+
+    public function type() {
+        return $this->belongsTo('App\EventType', 'event_type_id');
+    }
+    public function property() {
+        return $this->belongsTo('App\Property');
+    }
+    public function client() {
+        return $this->belongsTo('App\Client');
     }
 
 

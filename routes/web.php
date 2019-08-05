@@ -44,3 +44,17 @@ Route::get('/processes/form/{id?}', 'ProcessController@createOrUpdate')->name('p
 Route::post('/processes/form', 'ProcessController@createOrUpdate')->name('processes/form');
 Route::post('/processes/delete/{id}', 'ProcessController@delete')->name('processes/delete');
 
+Route::get('/contacts', 'EventsController@index')->name('contacts');
+Route::get('/contacts/form/{id?}', 'EventsController@createOrUpdateContact')->name('contacts/form');
+Route::post('/contacts/form', 'EventsController@createOrUpdateContact')->name('contacts/form');
+Route::post('/contacts/delete/{id}', 'EventsController@delete')->name('contacts/delete');
+
+Route::get('/properties_schedules', 'EventsController@index')->name('properties_schedules');
+Route::get('/properties_schedules/form/{id?}', 'EventsController@createOrUpdatePropertyShow')->name('properties_schedules/form');
+Route::post('/properties_schedules/form', 'EventsController@createOrUpdatePropertyShow')->name('properties_schedules/form');
+Route::post('/properties_schedules/delete/{id}', 'EventsController@delete')->name('properties_schedules/delete');
+
+Route::get('/clients_status/{status_id}', 'ClientsController@getByStatus')->name('clients_status');
+
+
+

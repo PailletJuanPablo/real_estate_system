@@ -51,9 +51,8 @@ class ClientsController extends Controller
                     try {
                         $client->update($request->all());
                     } catch (\Illuminate\Database\QueryException $e) {
-                        if($e->errorInfo[0] == "23000"){
-                            return redirect()->back()->withErrors( ['No se pudo agregar el cliente. El mismo ya se encuentra registrado']);   
-
+                        if ($e->errorInfo[0] == "23000") {
+                            return redirect()->back()->withErrors(['No se pudo agregar el cliente. El mismo ya se encuentra registrado']);
                         }
                         return redirect()->route('clients');
                     }
@@ -62,11 +61,10 @@ class ClientsController extends Controller
                 try {
                     $client = Client::create($request->all());
                 } catch (\Illuminate\Database\QueryException $e) {
-                    if($e->errorInfo[0] == "23000"){
-                        return redirect()->back()->withErrors( ['No se pudo agregar el cliente. El mismo ya se encuentra registrado']);   
+                    if ($e->errorInfo[0] == "23000") {
+                        return redirect()->back()->withErrors(['No se pudo agregar el cliente. El mismo ya se encuentra registrado']);
                     }
                     return redirect()->route('clients');
-
                 }
             }
         }
@@ -77,5 +75,14 @@ class ClientsController extends Controller
     {
         Client::destroy($id);
         return redirect()->route('clients');
+    }
+
+    public function getByStatus($status_id)
+    {
+        $clients = Client::where('status_id', $status_id)->get();
+        $data = [
+            "clients" => $clients,
+        ];
+        return view('clients.list', $data);
     }
 }

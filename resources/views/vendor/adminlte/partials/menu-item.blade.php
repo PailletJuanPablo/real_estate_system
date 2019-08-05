@@ -5,7 +5,13 @@
         <a href="{{ $item['href'] }}"
            @if (isset($item['target'])) target="{{ $item['target'] }}" @endif
         >
-            <i class="fa fa-fw fa-{{ isset($item['icon']) ? $item['icon'] : 'circle-o' }} {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"></i>
+            <i class="fa fa-fw fa-{{ isset($item['icon']) ? $item['icon'] : 'circle-o' }} {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}"
+       
+            @isset($item['hexa_color'])
+                style="color: {{$item['hexa_color']}} !important" 
+            @endisset
+
+            ></i>
             <span>{{ $item['text'] }}</span>
             @if (isset($item['label']))
                 <span class="pull-right-container">

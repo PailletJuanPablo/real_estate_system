@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class Client extends Model
 {
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $fillable = ['first_name', 'last_name', 'phone', 'status_id'];
 
-    
     public static function boot(){
         parent::boot();
     

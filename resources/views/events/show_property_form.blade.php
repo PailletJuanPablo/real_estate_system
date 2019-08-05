@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Registrar Contacto')
+@section('title', 'Registrar Muestra de Propiedad')
 
 @section('content_header')
 <h1> {{ $title }} </h1>
@@ -27,7 +27,7 @@
                     <input type="hidden" value="{{$event->id}}" name="id">
                     @endisset
                     <input type="hidden" id="status_id" name="status_id" value="1">
-                    <input type="hidden" id="event_type_id" name="event_type_id" value="{{$event_type_id}}">
+                    <input type="hidden" id="event_type_id" name="event_type_id" value="3">
 
                     <div class="box-body">
                         <div class="col-md-12">
@@ -72,6 +72,27 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fecha y Hora </label>
+                                    <input required type="text" readonly="readonly" id="datetimepicker"
+                                        placeholder="Presione aquí" class="form-control" name="schedule" @isset($event)
+                                        value="{{$event->schedule}}" @endisset>
+                                </div>
+                            </div>
+
+
+                        <div class="col-md-6">
+                            <input type="hidden" id="propTitle" name="property_title">
+                            <div class="form-group">
+                                <label>Propiedad </label>
+                                <select class="form-control select2" id="properties_select" required name="tokko_id">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+
+
 
                         <div class="col-md-12">
                             <div class="form-group">
@@ -115,9 +136,19 @@
 
 @section('css')
 <link href="{{ asset('css/colorpicker.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/dtpicker.min.css') }}" rel="stylesheet">
+
 @stop
 
 @section('js')
+
+<script src="{{ asset('js/dtpicker.min.js') }}" type="text/javascript"></script>
+<script>
+    $.datetimepicker.setLocale('es');
+
+$('#datetimepicker').datetimepicker({ format:'d.m.Y H:m'});
+</script>
+
 <script>
     const clients = {};
 </script>
@@ -131,6 +162,7 @@
 </script>
 @endforeach
 <script src="{{ asset('js/events.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/properties.js') }}" type="text/javascript"></script>
 
 <script>
 

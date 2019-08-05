@@ -8,8 +8,8 @@ $.ajax({
 				text: property.address + ' - ' + property.publication_title
 			}));
 		});
-		$('.select2').select2();
-		$('.select2').on('select2:select', function (e) {
+		$('#properties_select').select2();
+		$('#properties_select').on('select2:select', function (e) {
 			var data = e.params.data.text;
 			$('#propTitle').val(data);
 		});

@@ -29,6 +29,10 @@
     @endif
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bm.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/madmin.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ripples.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mdtheme.min.css') }}">
 
     @yield('adminlte_css')
 
@@ -68,6 +72,10 @@
 @yield('adminlte_js')
 
 <script src="{{ asset('js/app.js') }}" defer></script>
-
+<script src="{{ asset('js/mat.min.js') }}" ></script>
+<script src="{{ asset('js/ripples.min.js') }}" ></script>
+<script>
+    $.material.init();
+  </script>
 </body>
 </html>

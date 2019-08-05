@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Clientes')
+@section('title', 'Tipos de Eventos')
 
 @section('content_header')
-<h1>Clientes</h1>
+<h1>Tipos de Eventos</h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
         <div class="box">
 
             <div class="box-header">
-                <a class="btn btn-app" href="{{route('clients/form')}}">
+                <a class="btn btn-app bg-red" href="{{route('event_types/form')}}">
                     <i class="fa fa-plus"></i> Añadir
                 </a>
             </div>
@@ -22,30 +22,28 @@
                 <table id="table_id" class="table table-bordered table-hover dataTable">
                     <thead>
                         <tr>
-                            <th>Nombre </th>
-                            <th>Tel</th>
-                            <th>Estado</th>
+                            <th>Titulo </th>
+                            <th>Descripción</th>
+                            <th>Color</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($clients as $client)
+                        @foreach ($event_types as $event_type)
                         <tr>
-                            <td> {{$client->first_name}}  {{$client->last_name}}   </td>
-                            <td> {{$client->phone}} </td>
+                            <td> {{$event_type->name}} </td>
+                            <td> {{$event_type->description}} </td>
                             <td>
-                                <span class="label"
-                                style="height: 20px; width: 100px; background: {{ $client->status->color}}"> 
-                                {{$client->status->title}} </span>
+                                <div style="height: 50px; width: 100%; background: {{ $event_type->color}}"></div>
                             </td>
-                            <td class="table-actions-flex">
+                            <td>
                                 <form method="POST" onsubmit="return confirm('¿Confirma eliminación?');"
-                                    action="{{route('clients/delete', ['id' => $client->id])}}">
+                                    action="{{route('event_types/delete', ['id' => $event_type->id])}}">
                                     <button type="submit" class="btn bg-red btn-sm btn-block"> <i class="fa fa-remove"></i>
                                         Eliminar </button>
                                 </form>
-                                <a href="{{route('clients/form', ['id'=> $client->id])}}"
+                                <a href="{{route('event_types/form', ['id'=> $event_type->id])}}"
                                     class="btn bg-blue btn-sm btn-block"> <i class="fa fa-pencil"></i>
                                     Editar </span>
                                 </a>

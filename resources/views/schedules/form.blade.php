@@ -39,9 +39,9 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Fecha y Hora </label>
-                                <input required type="text" readonly="readonly"  id="datetimepicker" placeholder="Presione aquí"
-                                    class="form-control" name="at" @isset($schedule) value="{{$schedule->last_name}}"
-                                    @endisset>
+                                <input required type="text" readonly="readonly" id="datetimepicker"
+                                    placeholder="Presione aquí" class="form-control" name="at" @isset($schedule)
+                                    value="{{$schedule->last_name}}" @endisset>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -115,7 +115,11 @@
 
 @section('js')
 <script src="{{ asset('js/dtpicker.min.js') }}" type="text/javascript"></script>
+<script>
+    $.datetimepicker.setLocale('es');
 
+$('#datetimepicker').datetimepicker({ format:'d.m.Y H:m'});
+</script>
 <script src="{{ asset('js/properties.js') }}" type="text/javascript"></script>
 
 @stop

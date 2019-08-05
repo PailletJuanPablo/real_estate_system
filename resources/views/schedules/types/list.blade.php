@@ -40,11 +40,11 @@
                             <td>
                                 <form method="POST" onsubmit="return confirm('¿Confirma eliminación?');"
                                     action="{{route('schedules_types/delete', ['id' => $scheduleType->id])}}">
-                                    <button type="submit" class="btn label label-danger"> <i class="fa fa-remove"></i>
+                                    <button type="submit" class="btn bg-red btn-sm btn-block"> <i class="fa fa-remove"></i>
                                         Eliminar </button>
                                 </form>
                                 <a href="{{route('schedules_types/form', ['id'=> $scheduleType->id])}}"
-                                    class="btn label label-primary"> <i class="fa fa-pencil"></i>
+                                    class="btn bg-blue btn-sm btn-block"> <i class="fa fa-pencil"></i>
                                     Editar </span>
                                 </a>
                             </td>

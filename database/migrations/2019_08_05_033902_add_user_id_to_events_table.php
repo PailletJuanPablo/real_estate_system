@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActionTypesTable extends Migration
+class AddUserIdToEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateActionTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('action_types', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('description')->nullable();
-            $table->timestamps();
+        Schema::table('events', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +26,8 @@ class CreateActionTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('action_types');
+        Schema::table('events', function (Blueprint $table) {
+            //
+        });
     }
 }

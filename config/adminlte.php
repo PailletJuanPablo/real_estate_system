@@ -115,8 +115,8 @@ return [
             'role'  => 'admin',
         ],
         [
-            'text' => 'Tipos de eventos de agenda',
-            'url'  => 'schedules_types',
+            'text' => 'Tipos de eventos',
+            'url'  => 'event_types',
             'role'  => 'admin',
         ],
         'AGENDA',

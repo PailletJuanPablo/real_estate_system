@@ -13,7 +13,7 @@
         <div class="box">
 
             <div class="box-header">
-                <a class="btn btn-app" href="{{route('client_status/form')}}">
+                <a class="btn btn-app bg-red" href="{{route('client_status/form')}}">
                     <i class="fa fa-plus"></i> Añadir
                 </a>
             </div>
@@ -35,16 +35,16 @@
                             <td> {{$status->title}} </td>
                             <td> {{$status->description}} </td>
                             <td>
-                                <div style="height: 20px; width: 100px; background: {{ $status->color}}"></div>
+                                <div style="height: 50px; width: 100%; background: {{ $status->color}}"></div>
                             </td>
                             <td>
                                 <form method="POST" onsubmit="return confirm('¿Confirma eliminación?');"
                                     action="{{route('client_status/delete', ['id' => $status->id])}}">
-                                    <button type="submit" class="btn label label-danger"> <i class="fa fa-remove"></i>
+                                    <button type="submit" class="btn bg-red btn-sm btn-block"> <i class="fa fa-remove"></i>
                                         Eliminar </button>
                                 </form>
                                 <a href="{{route('client_status/form', ['id'=> $status->id])}}"
-                                    class="btn label label-primary"> <i class="fa fa-pencil"></i>
+                                    class="btn bg-blue btn-sm btn-block"> <i class="fa fa-pencil"></i>
                                     Editar </span>
                                 </a>
                             </td>

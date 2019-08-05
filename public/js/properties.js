@@ -19,6 +19,4 @@ $.ajax({
     }
 });
 
-$.datetimepicker.setLocale('es');
 
-$('#datetimepicker').datetimepicker({ format:'d.m.Y H:m'});

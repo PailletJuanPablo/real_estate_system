@@ -34,8 +34,13 @@ Route::get('/schedules/form/{id?}', 'SchedulesController@createOrUpdate')->name(
 Route::post('/schedules/form', 'SchedulesController@createOrUpdate')->name('schedules/form');
 Route::post('/schedules/delete/{id}', 'SchedulesController@delete')->name('schedules/delete');
 
-Route::get('/schedules_types', 'ScheduleTypeController@index')->name('schedules_types');
-Route::get('/schedules_types/form/{id?}', 'ScheduleTypeController@createOrUpdate')->name('schedules_types/form');
-Route::post('/schedules_types/form', 'ScheduleTypeController@createOrUpdate')->name('schedules_types/form');
-Route::post('/schedules_types/delete/{id}', 'ScheduleTypeController@delete')->name('schedules_types/delete');
+Route::get('/event_types', 'EventTypeController@index')->name('event_types');
+Route::get('/event_types/form/{id?}', 'EventTypeController@createOrUpdate')->name('event_types/form');
+Route::post('/event_types/form', 'EventTypeController@createOrUpdate')->name('event_types/form');
+Route::post('/event_types/delete/{id}', 'EventTypeController@delete')->name('event_types/delete');
+
+Route::get('/processes', 'ProcessController@index')->name('processes');
+Route::get('/processes/form/{id?}', 'ProcessController@createOrUpdate')->name('processes/form');
+Route::post('/processes/form', 'ProcessController@createOrUpdate')->name('processes/form');
+Route::post('/processes/delete/{id}', 'ProcessController@delete')->name('processes/delete');
 

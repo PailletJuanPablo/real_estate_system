@@ -27,7 +27,7 @@ class ClientStatusController extends Controller
         $isView = $request->isMethod('get');
 
         if($isView) {
-            $title = $request->input('id') ? 'Editar' : 'Añadir';
+            $title = $request->input('id') ? 'Actualizar Estado de Cliente' : 'Añadir';
       
             $data = [
                 "title" => $title,

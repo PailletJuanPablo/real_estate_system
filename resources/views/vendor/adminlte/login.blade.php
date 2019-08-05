@@ -41,9 +41,10 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        <div class="checkbox icheck">
+                        <div class="checkbox ">
                             <label>
-                                <input type="checkbox" name="remember"> {{ trans('adminlte::adminlte.remember_me') }}
+                                <input type="checkbox" class="checkbox-material" name="remember"> 
+                                {{ trans('adminlte::adminlte.remember_me') }}
                             </label>
                         </div>
                     </div>
@@ -74,13 +75,7 @@
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/plugins/iCheck/icheck.min.js') }}"></script>
     <script>
-        $(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
-            });
-        });
+       
     </script>
     @yield('js')
 @stop
